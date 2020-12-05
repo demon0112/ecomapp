@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab1"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-card class="welcome-card">
+  <ion-title> {{productDetail.id}}</ion-title>
+    <ion-slides pager="true">
+      <ion-slide *ngFor="let product of (productDetail | async)?.imgUrl" class="productDetail">
+        <img [src]="product" />
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+
+  <ion-card class="welcome-card">
+   <ion-card-header>
+      <ion-card-subtitle>{{(productDetail | async)?.name}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-subtitle>Description</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>{{(productDetail | async)?.description}}</ion-card-content>
+  </ion-card>
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-subtitle>Price</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>{{(productDetail | async)?.price}}</ion-card-content>
+  </ion-card>
+  <ion-row class="ion-text-center">
+    <ion-col size="6" class="ion-no-padding">
+      <ion-button expand="full" color="primary" (click)="addToCart(productDetail.id)">{{addtocrt}}</ion-button>
+      <ion-button expand="full" color="primary" (click)="goToCart()">Go to Cart</ion-button>
+    </ion-col>
+  </ion-row>
+   
+</ion-content>
+
+

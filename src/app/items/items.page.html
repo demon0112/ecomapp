@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-buttons slot="start">
+    <ion-back-button>Back</ion-back-button>
+  </ion-buttons>
+  <ion-toolbar>
+    <ion-title>Products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button fill="outline"  (click)="profiledet()" >Profile</ion-button>
+  <ion-button fill="outline"  (click)="orderdet()" >Orders</ion-button>
+  <ion-list>
+    <ion-card>
+      <ion-item *ngFor="let prod of products">
+        <ion-label>
+          <h2>
+            {{prod.name}}
+          </h2>
+          
+        </ion-label>
+        
+        <ion-button fill="outline" slot="end" (click)="details(prod.id,prod.name)" [routerLink]="['/productdetails', prod.id]">View</ion-button>
+      </ion-item>
+    <ion-item lines="none" (click)="viewCart()">
+      <ion-icon slot="start" name="cart-outline"></ion-icon>
+      <ion-label>Cart</ion-label>
+      <ion-badge slot="end" color="primary" mode="md" *ngIf="cart.length>0">{{cart.length}}>
+
+      </ion-badge>
+
+    </ion-item>
+      
+    </ion-card>
+  </ion-list>
+
+</ion-content>

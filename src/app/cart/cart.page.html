@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+<ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Your Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid>
+  <ion-col size=6 >
+<ion-item lines="none" *ngFor="let prod of cart" >
+
+<ion-label>
+  <h2>
+    {{prod.name}}
+  </h2>
+</ion-label>
+<ion-label>
+  <h2>
+    {{prod.price}}
+  </h2>
+</ion-label>
+</ion-item>
+<ion-item>
+  <ion-label>Bill</ion-label>
+  <ion-label>{{totalAmount}}</ion-label>
+</ion-item>
+<ion-button expand="full" color="primary" (click)="placeorder()">Buy Now</ion-button>
+  </ion-col>
+</ion-grid>
+</ion-content>
